@@ -26,5 +26,21 @@
  * @returns {number} Total tax amount owed
  */
 export function calculateTax(income) {
-  // Your code here
+  if (typeof  income !== "number" || income <= 0) return 0;
+  let taxValue = 0;
+
+  if (income > 70000) {
+    taxValue += (income - 70000) * 0.30;
+    income = 70000;
+  }
+  if (income > 30000) {
+    taxValue += (income - 30000) * 0.20;
+    income = 30000;
+  }
+  if (income > 10000) {
+    taxValue += (income - 10000) * 0.10;
+    income = 10000;
+  }
+
+  return taxValue;
 }
